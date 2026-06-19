@@ -8,7 +8,7 @@
 
 | 模块 | 说明 |
 |---|---|
-| **[FovesLog](./Foveslog/README.md)** | 日志工具集，带可选彩色输出 |
+| **[FovesLog](./FovesLog/)** | 日志工具集 — `setup_log` + `LoggedTask`，带可选彩色输出 |
 
 ---
 
