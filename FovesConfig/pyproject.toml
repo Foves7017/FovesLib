@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "FovesConfig"
+version = "0.1.1"
+description = "四叶的配置管理工具 — 基于 Pydantic 的配置加载器，上下文管理器自动读写"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Foves7017"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.urls]
+Repository = "https://github.com/Foves7017/FovesLib"
+
+[tool.hatch.build.targets.wheel]
+packages = ["FovesConfig"]

@@ -9,6 +9,7 @@
 | 模块 | 说明 |
 |---|---|
 | **[FovesLog](./FovesLog/)** | 日志工具集 — `setup_log` + `LoggedTask`，带可选彩色输出 |
+| **[FovesConfig](./FovesConfig/)** | 配置管理 — 基于 Pydantic，上下文管理器自动读写 JSON 配置 |
 
 ---
 
