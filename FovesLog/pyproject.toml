@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "FovesLog"
+version = "0.1.2"
+description = "四叶的日志工具集"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Foves7017"}
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Repository = "https://github.com/Foves7017/FovesLib"
+
+[tool.hatch.build.targets.wheel]
+packages = ["FovesLog"]
