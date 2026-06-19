@@ -10,6 +10,7 @@
 |---|---|
 | **[FovesLog](./FovesLog/)** | 日志工具集 — `setup_log` + `LoggedTask`，带可选彩色输出 |
 | **[FovesConfig](./FovesConfig/)** | 配置管理 — 基于 Pydantic，上下文管理器自动读写 JSON 配置 |
+| **[FovesColor](./FovesColor/)** | 颜色工具 — HSL/RGB/Hex 转换与色轮生成，零依赖 |
 
 ---
 
