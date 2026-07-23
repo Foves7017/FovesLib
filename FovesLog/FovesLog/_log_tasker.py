@@ -3,7 +3,7 @@ import logging
 
 class LoggedTask:
     """ 一个可以记录用时的工具 """
-    def __init__(self, task_name: str, level: int=logging.INFO, logger: logging.Logger|None=None) -> None:
+    def __init__(self, task_name: str, logger: logging.Logger|None=None, level: int=logging.INFO,) -> None:
         self.task_name = task_name
         self.level = level
         self.logger = logger or logging.getLogger(f'任务-{task_name}')
