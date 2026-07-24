@@ -64,7 +64,12 @@ with LoggedTask('等待', level=logging.ERROR, logger=logger) as task:
 # [2026-06-19 17:28:31,754][ERROR][TEST] 任务 等待 完成，用时 0.10 秒
 ```
 
+可以通过指定 `time_precision` 的方式来指定显示的小数位数，默认为 2 
+
 # 更新日志
+
+v0.1.4
+ - `LoggedTask.__init__` 添加了 `time_precision` 参数，可以用来指定小数位数
 
 v0.1.3
  - 交换了 `LoggedTask.__init__` 中 `logger` 和 `level` 的位置，更加易于使用
