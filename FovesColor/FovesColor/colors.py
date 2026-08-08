@@ -1,3 +1,33 @@
+from typing import overload
+
+@overload
+def color_lerp(color_start: tuple[int, int, int], color_target: tuple[int, int, int], value: float|int) -> tuple[int, int, int]:
+    ...
+
+@overload
+def color_lerp(color_start: tuple[int, int, int], color_target: tuple[int, int, int], value: list[float|int]) -> list[tuple[int, int, int]]:
+    ...
+
+def color_lerp(color_start: tuple[int, int, int], color_target: tuple[int, int, int], value: float|int|list[float|int]) -> tuple[int, int, int]|list[tuple[int, int, int]]:
+    """ 对颜色进行线性插值。如果指定了多个值，则会返回多个结果 """
+    if isinstance(value, float|int):
+        values = [value]
+    elif isinstance(value, list):
+        values = value
+
+    results = []
+    for k in values:
+        k = max(0, min(1, k))
+        results.append(tuple(
+            round(a + (b - a) * k)
+            for a, b in zip(color_start, color_target)
+        ))
+
+    if isinstance(value, (float, int)):
+        return results[0]
+    else:
+        return results
+
 def hsl_to_rgb(h: int, s: int, l: int) -> tuple[int, int, int]:
     """
     将HSL颜色转换为RGB颜色
@@ -42,6 +72,49 @@ def hsl_to_rgb(h: int, s: int, l: int) -> tuple[int, int, int]:
     
     # 将RGB值转换为0-255范围并四舍五入
     return (int(round(r * 255)), int(round(g * 255)), int(round(b * 255)))
+
+def rgb_to_hsl(r: int, g: int, b: int) -> tuple[int, int, int]:
+    # RGB 归一化到 0~1
+    r_ = r / 255
+    g_ = g / 255
+    b_ = b / 255
+
+    max_c = max(r_, g_, b_)
+    min_c = min(r_, g_, b_)
+
+    # Lightness
+    l = (max_c + min_c) / 2
+
+    # 灰色情况
+    if max_c == min_c:
+        h = 0
+        s = 0
+    else:
+        delta = max_c - min_c
+
+        # Saturation
+        if l > 0.5:
+            s = delta / (2 - max_c - min_c)
+        else:
+            s = delta / (max_c + min_c)
+
+        # Hue
+        if max_c == r_:
+            h = (g_ - b_) / delta
+            if g_ < b_:
+                h += 6
+        elif max_c == g_:
+            h = (b_ - r_) / delta + 2
+        else:
+            h = (r_ - g_) / delta + 4
+
+        h /= 6
+
+    return (
+        round(h * 360),
+        round(s * 100),
+        round(l * 100)
+    ) 
 
 def rgb_tuple_to_hex(rgb: tuple[int, int, int]|list[tuple[int, int, int]]) -> str|list[str]:
     """

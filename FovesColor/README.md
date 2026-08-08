@@ -22,6 +22,17 @@ https://github.com/Foves7017/FovesLib
 
 返回 `tuple[int, int, int]`，每个分量范围 0–255。
 
+## `rgb_to_hsl(r, g, b)`
+
+将 HSL 颜色转换为 RGB。
+
+| 参数 | 类型 | 范围 | 说明 |
+|------|------|------|------|
+| `r` | `int` | 0-255 | 红色分量 |
+| `g` | `int` | 0-255 | 绿色分量 |
+| `b` | `int` | 0-255 | 蓝色分量 |
+
+返回 `tuple[int, int, int]`， h 分量范围 0–255，s 和 l 分量范围 0-100
 
 ## `rgb_tuple_to_hex(rgb)`
 
@@ -46,3 +57,9 @@ https://github.com/Foves7017/FovesLib
 | `l` | `int` | 0–100 | 亮度 |
 
 返回 `list[tuple[int, int, int]]`。
+
+# 更新日志
+
+v0.2.0
+ - 添加了 `rgb_to_hsl` 函数，可以将 RGB 颜色转换为 HSL
+ - 添加了 `color_leap` 函数，可以线性插值颜色

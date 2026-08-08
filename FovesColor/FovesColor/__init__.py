@@ -1,1 +1,1 @@
-from colors import color_whell, hsl_to_rgb, rgb_tuple_to_hex
+from .colors import color_whell, hsl_to_rgb, rgb_tuple_to_hex, rgb_to_hsl, color_lerp

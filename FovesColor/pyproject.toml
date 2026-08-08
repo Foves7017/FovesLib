@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "FovesColor"
-version = "0.1.0"
+version = "0.2.0"
 description = "四叶的颜色管理工具"
 readme = "README.md"
 license = {file = "LICENSE"}
