@@ -11,7 +11,7 @@ https://github.com/Foves7017/FovesLib
 
 ## setup_log
 用于快速设置日志句柄，可以调节选项： 
-`log_floder: Path=Path('./logs')`：保存日志文件的文件夹
+`log_folder: Path=Path('./logs')`：保存日志文件的文件夹
 `file_date_format: str='%Y_%m_%d'`：日志文件使用的时间格式
 `info_format: str='[%(asctime)s][%(levelname)s][%(name)s] %(message)s'`：输出日志使用的消息格式
 `save_to_file: bool=True`：是否保存日志文件

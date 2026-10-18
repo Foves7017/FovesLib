@@ -132,6 +132,6 @@ def rgb_tuple_to_hex(rgb: tuple[int, int, int]|list[tuple[int, int, int]]) -> st
         return f'#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}'
 
 
-def color_whell(split: int, s: int, l: int) -> list[tuple[int, int, int]]:
+def color_wheel(split: int, s: int, l: int) -> list[tuple[int, int, int]]:
     """ 将色轮分为 split 等分，然后按给定的饱和度和亮度生成颜色 """
     return [hsl_to_rgb(int(i * 360 / split), s, l) for i in range(split)]

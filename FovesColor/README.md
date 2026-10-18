@@ -46,7 +46,7 @@ https://github.com/Foves7017/FovesLib
 返回 `str`（单个）或 `list[str]`（批量）。
 
 
-## `color_whell(split, s, l)`
+## `color_wheel(split, s, l)`
 
 将色轮均分为 `split` 等份，按指定饱和度和亮度生成 RGB 颜色列表。
 

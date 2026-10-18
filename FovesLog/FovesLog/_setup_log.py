@@ -4,7 +4,7 @@ import logging
 import datetime
 
 def setup_log(
-        log_floder: Path=Path('./logs'),
+        log_folder: Path=Path('./logs'),
         file_date_format: str='%Y_%m_%d',
         info_format: str='[%(asctime)s][%(levelname)s][%(name)s] %(message)s',
         save_to_file: bool=True,
@@ -18,18 +18,18 @@ def setup_log(
     # 建立文件句柄
     if save_to_file:
         # 确认日志文件夹
-        log_floder.mkdir(exist_ok=True)
-        # 通常文件
+        log_folder.mkdir(exist_ok=True)
+        # 普通文件
         file_handle = logging.FileHandler(
-            log_floder / f'{time}.log',
+            log_folder / f'{time}.log',
             encoding='UTF8',
         )
         file_handle.setLevel(logging.DEBUG)
         file_handle.setFormatter(formatter)
 
-        # 最后一次
+        # 最新一次
         latest_handle = logging.FileHandler(
-            log_floder / f'latest.log',
+            log_folder / f'latest.log',
             mode='w',
             encoding='UTF8'
         )
