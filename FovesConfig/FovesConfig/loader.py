@@ -13,8 +13,20 @@ class ConfigLoader[T: BaseModel]:
         else:
             self.model = self.model_cls()
 
+    def _write(self):
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(
+            self.model.model_dump_json(indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        
     def readonly(self) -> T:
         self._read()
+        return self.model
+    
+    def overwrite(self, model: T) -> T:
+        self.model = model
+        self._write()
         return self.model
 
     def __enter__(self) -> T:
@@ -22,8 +34,4 @@ class ConfigLoader[T: BaseModel]:
         return self.model
 
     def __exit__(self, exc_type, exc, tb):
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(
-            self.model.model_dump_json(indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
+        self._write()
